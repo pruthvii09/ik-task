@@ -22,6 +22,9 @@ const CreateWebinarModal = () => {
   });
   const [errors, setErrors] = useState({});
 
+  /**
+   * function to handleImageChnage
+   */
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -36,6 +39,13 @@ const CreateWebinarModal = () => {
     }
   };
 
+  /**
+   * Validates form input fields.
+   * Checks for empty fields (excluding "instructorImage"), ensures the "instructorName"
+   * is at least 2 characters long, and verifies the "webinarStartDate" is a valid date.
+   *
+   * @returns {boolean} false if validation passes (no errors), true if errors are found.
+   */
   const validateForm = () => {
     let newErrors = {};
     Object.keys(data).forEach((key) => {
@@ -56,6 +66,13 @@ const CreateWebinarModal = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  /**
+   * Handles form submission for creating a webinar.
+   * Prevents the default form submission behavior, validates the form,
+   * Generates a random ID for the webinar and sets a default instructor image if none is provided.
+   * After submission, the modal is hidden, a success toast message is displayed, and the form data is reset.
+   * @param {Event} e - The event object from the form submission.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -65,6 +82,18 @@ const CreateWebinarModal = () => {
         instructorImage:
           data.instructorImage || "https://i.postimg.cc/Jh8vpP09/image.png",
       };
+      /**
+       * make a api call and then dispatch values
+       *  const response = await fetch("api-to-store-webinar",{
+       *      method:"POST"
+       * });
+       * const data = await response.json();
+       * if(response.ok){
+       *    dispatch("")
+       * } else {
+       *  setError("")
+       * }
+       */
       dispatch(createWebinar(submissionData));
       hideModal();
       toast.success("Webinar created successfully!!");

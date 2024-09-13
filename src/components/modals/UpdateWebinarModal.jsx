@@ -24,6 +24,13 @@ const UpdateWebinarModal = ({ id }) => {
     startTime: "",
     endTime: "",
   });
+  /**
+   * Runs when the `id` or `webinars` array changes.
+   * Finds the webinar with the matching `id` from the `webinars` array.
+   * Dependencies:
+   * - `id`: The ID of the webinar being edited or viewed.
+   * - `webinars`: The array of webinars to search through.
+   */
   useEffect(() => {
     const foundWebinar = webinars.find((webinar) => webinar.id === id);
     if (foundWebinar) {
@@ -65,6 +72,13 @@ const UpdateWebinarModal = ({ id }) => {
     return Object.keys(newErrors).length === 0;
   };
 
+  /**
+   * Handles form submission for creating a webinar.
+   * Prevents the default form submission behavior, validates the form,
+   * Generates a random ID for the webinar and sets a default instructor image if none is provided.
+   * After submission, the modal is hidden, a success toast message is displayed, and the form data is reset.
+   * @param {Event} e - The event object from the form submission.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
@@ -74,6 +88,18 @@ const UpdateWebinarModal = ({ id }) => {
           data.instructorImage ||
           "https://avatars.githubusercontent.com/u/101882373?s=400&u=39de778838e97a5f64e11e7e628f078a047f3936&v",
       };
+      /**
+       * make a api call and then dispatch values
+       *  const response = await fetch("api-to-store-webinar",{
+       *      method:"POST"
+       * });
+       * const data = await response.json();
+       * if(response.ok){
+       *    dispatch("")
+       * } else {
+       *  setError("")
+       * }
+       */
       dispatch(updateWebinar({ id: id, data: submissionData }));
       toast.success("Webinar updated successfully!!");
       hideModal();

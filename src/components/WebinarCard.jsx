@@ -4,6 +4,7 @@ import Image from "../asstes/image.png";
 import { useDispatch } from "react-redux";
 import { deleteWebinar } from "../redux/webinarSlice";
 import toast from "react-hot-toast";
+import { formatDate } from "../helpers/functions";
 const WebinarCard = ({ data, color }) => {
   const { showModal, hideModal } = useModal();
   const dispatch = useDispatch();
@@ -46,7 +47,9 @@ const WebinarCard = ({ data, color }) => {
             {data.webinarTitle}
           </h1>
           <p className="text-sm font-normal text-gray-600 dark:text-zinc-200    ">
-            {data.webinarStartDate} • {data.startTime} - {data.endTime}
+            {formatDate(data.webinarStartDate).day} •{" "}
+            {formatDate(data.webinarStartDate).date} • {data.startTime} -{" "}
+            {data.endTime}
           </p>
         </div>
         <div className="mt-5 flex items-center gap-4">

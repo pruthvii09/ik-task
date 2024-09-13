@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { webinarSamples } from "../constants/data";
 
+/**
+ * Creating and slice for webinar with constant initial values
+ */
 const webinarSlice = createSlice({
   name: "webinars",
   initialState: {
