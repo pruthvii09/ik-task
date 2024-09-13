@@ -1,13 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ModalProvider } from "./context/ModalContext";
+import { Toaster } from "react-hot-toast";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <ModalProvider>
+        <App />
+        <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
+      </ModalProvider>
+    </Provider>
   </React.StrictMode>
 );
 
