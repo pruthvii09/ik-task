@@ -96,20 +96,31 @@ const UpdateWebinarModal = ({ id }) => {
     <div className="fixed inset-0 flex items-center justify-center z-40">
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      <div className="relative z-50 bg-white  sm:w-[70%] w-[90%] rounded-2xl shadow-lg">
-        <div className="px-4 py-3 flex items-center justify-between border-b border-[#E3E7EC]">
-          <h1 className="text-lg font-medium">Update Webinar</h1>
-          <X onClick={() => hideModal()} size={18} />
+      <div className="relative z-50 bg-white dark:bg-[#151A22]  sm:w-[70%] w-[90%] rounded-2xl shadow-lg">
+        <div className="px-4 py-3 flex items-center justify-between border-b border-[#E3E7EC] dark:border-zinc-800">
+          <h1 className="text-lg font-medium dark:text-white">
+            Update Webinar
+          </h1>
+          <X
+            onClick={() => hideModal()}
+            size={18}
+            className="dark:text-white cursor-pointer"
+          />
         </div>
         <div className="max-h-[70vh] overflow-y-auto">
           {/* Instructor Detail */}
           <div className="mt-6 pb-4 px-4">
             <div className="flex gap-3 text-base  text-[#2E333B]">
               <div className="sm:block hidden">
-                <Users size={24} color="#444952" />
+                <Users
+                  size={24}
+                  className="text-[#444952] dark:text-zinc-200"
+                />
               </div>
               <div className="w-full">
-                <h5 className="font-semibold">Instructor Details</h5>
+                <h5 className="font-semibold dark:text-zinc-200">
+                  Instructor Details
+                </h5>
                 <div className="flex sm:flex-row flex-col-reverse gap-6 mt-4">
                   <div className="flex flex-col gap-4 justify-between flex-1">
                     <Input
@@ -200,10 +211,15 @@ const UpdateWebinarModal = ({ id }) => {
           <div className="mt-4 pb-4 px-4">
             <div className="flex gap-3 text-base  text-[#2E333B]">
               <div className="sm:block hidden">
-                <Video size={24} color="#444952" />
+                <Video
+                  size={24}
+                  className="text-[#444952] dark:text-zinc-200"
+                />
               </div>
               <div className="w-full">
-                <h5 className="font-semibold">Webinar Details</h5>
+                <h5 className="font-semibold dark:text-white">
+                  Webinar Details
+                </h5>
                 <div className="flex mt-4">
                   <div className="flex-1">
                     <Input

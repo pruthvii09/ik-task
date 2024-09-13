@@ -95,7 +95,7 @@ const CreateWebinarModal = () => {
           <X
             onClick={() => hideModal()}
             size={18}
-            className="dark:text-white"
+            className="dark:text-white cursor-pointer"
           />
         </div>
         <div className="max-h-[70vh] overflow-y-auto ">
