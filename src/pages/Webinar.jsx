@@ -57,7 +57,10 @@ const Webinar = () => {
           ))}
         </div>
       ) : (
-        <div className="min-h-screen dark:text-white">Not found</div>
+        <div className="h-[calc(100vh-100px)] flex flex-col items-center justify-center dark:text-white">
+          <h1 className="text-red-500 sm:text-9xl text-7xl">404</h1>
+          <span className="text-xl">No webinar Found</span>
+        </div>
       )}
     </div>
   );
