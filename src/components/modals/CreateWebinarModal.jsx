@@ -320,7 +320,7 @@ const CreateWebinarModal = () => {
             </button>
           </div>
           {Object.keys(errors).length > 0 && (
-            <div className="flex items-center text-red-500 gap-2 pr-10">
+            <div className="sm:flex items-center text-red-500 gap-2 pr-10 hidden">
               <CircleAlert size={16} />
               <span className="text-xs ">There are some errors in from</span>
             </div>
