@@ -1,4 +1,4 @@
-import { Plus, Users, Video, X } from "lucide-react";
+import { CircleAlert, Plus, Users, Video, X } from "lucide-react";
 import React, { useState } from "react";
 import { useModal } from "../../context/ModalContext";
 import Input from "../ui/Input";
@@ -304,19 +304,27 @@ const CreateWebinarModal = () => {
             </div>
           </div>
         </div>
-        <div className="px-4 py-4 flex items-center gap-6 border-t border-[#E3E7EC] dark:border-zinc-800">
-          <button
-            onClick={handleSubmit}
-            className="bg-[#0E51F1] text-white px-2.5 py-2 rounded-lg shadow-sm shadow-[#0A3EA8] hover:bg-[#0C46D5] transition duration-200 ease-in-out"
-          >
-            Create Webinar
-          </button>
-          <button
-            onClick={() => hideModal()}
-            className="text-[#0E51F1] font-medium"
-          >
-            Cancle
-          </button>
+        <div className="px-4 py-4 border-t border-[#E3E7EC] dark:border-zinc-800 flex justify-between items-center">
+          <div className=" flex items-center gap-6">
+            <button
+              onClick={handleSubmit}
+              className="bg-[#0E51F1] text-white px-2.5 py-2 rounded-lg shadow-sm shadow-[#0A3EA8] hover:bg-[#0C46D5] transition duration-200 ease-in-out"
+            >
+              Create Webinar
+            </button>
+            <button
+              onClick={() => hideModal()}
+              className="text-[#0E51F1] font-medium"
+            >
+              Cancle
+            </button>
+          </div>
+          {Object.keys(errors).length > 0 && (
+            <div className="flex items-center text-red-500 gap-2 pr-10">
+              <CircleAlert size={16} />
+              <span className="text-xs ">There are some errors in from</span>
+            </div>
+          )}
         </div>
       </div>
     </div>

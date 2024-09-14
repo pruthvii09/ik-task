@@ -1,12 +1,15 @@
 import React from "react";
 import { useModal } from "../context/ModalContext";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { showModal } = useModal();
   return (
     <div className="flex sticky z-20 top-0 w-full bg-white dark:bg-[#151A22] items-center justify-between sm:px-8 px-4 sm:py-4 py-2 border-b border-[#E3E7EC] dark:border-zinc-700">
       <div>
-        <h1 className="text-xl font-medium dark:text-white">Webinar</h1>
+        <Link to="/" className="text-xl font-medium dark:text-white">
+          Webinar
+        </Link>
       </div>
       <div>
         <button
