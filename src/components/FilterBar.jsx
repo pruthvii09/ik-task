@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Search } from "lucide-react";
+import { useSelector } from "react-redux";
 
 const FilterBar = ({ searchTerm, onSearchChange, onTopicChange }) => {
+  const webinars = useSelector((store) => store.webinars.webinars);
+
+  /* Calculate unique topics from webinars array:
+   * 1. Extract all topics from webinars
+   * 2. Create a Set to remove duplicates
+   * 3. Convert back to array and sort alphabetically
+   */
+  const uniqueTopics = useMemo(() => {
+    const topics = webinars.map((webinar) => webinar.topics);
+    return [...new Set(topics)].sort();
+  }, [webinars]);
+
   return (
     <div className="py-2 w-full flex items-center sm:flex-row flex-col gap-4 sm:gap-0 justify-between">
       <div className="relative w-full">
@@ -22,8 +35,11 @@ const FilterBar = ({ searchTerm, onSearchChange, onTopicChange }) => {
           className="outline-none sm:w-fit w-full px-2 py-1.5 border rounded-md border-[#E3E7EC] dark:bg-[#151617] dark:border-zinc-700 dark:text-white"
         >
           <option value="">Select Topic</option>
-          <option value="careers">Careers</option>
-          <option value="front end engineering">Front End Engineering</option>
+          {uniqueTopics.map((topic) => (
+            <option key={topic} value={topic}>
+              {topic}
+            </option>
+          ))}
         </select>
       </div>
     </div>

@@ -29,7 +29,7 @@ export const webinarSamples = [
     instructorRole: "UX Designer",
     instructorImage: "https://i.postimg.cc/Jh8vpP09/image.png",
     instructorCompany: "Creative Designs",
-    topics: "Front End Engineering",
+    topics: "DevOps Engineering",
     webinarTitle: "Designing User-Centered Experiences is Very Long Title",
     webinarStartDate: "2024-09-22",
     startTime: "09:00",

@@ -16,9 +16,9 @@ const CreateWebinarModal = () => {
     instructorCompany: "",
     topics: "",
     webinarTitle: "",
-    webinarStartDate: "",
-    startTime: "",
-    endTime: "",
+    webinarStartDate: new Date().toISOString().split("T")[0] || "",
+    startTime: "00:00",
+    endTime: "00:00",
   });
   const [errors, setErrors] = useState({});
 

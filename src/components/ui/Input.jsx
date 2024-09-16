@@ -19,6 +19,8 @@ const Input = ({
           error ? "border-red-500" : "border-[#E3E7EC] dark:border-zinc-700"
         } outline-none px-2 py-1.5 rounded-md`}
         type={type}
+        min="00:00"
+        max="23:59"
         placeholder={placeholder}
         value={value}
         onChange={onChange}
